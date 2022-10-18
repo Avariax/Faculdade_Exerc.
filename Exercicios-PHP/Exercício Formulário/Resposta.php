@@ -31,9 +31,15 @@
             $data = $_GET["data"];
             $email = $_GET["email"];
             $telefone = $_GET["telefone"];
+            $sexo = $_GET ["sexo"];
 
-            echo "<h1>Muito obrigado pela atenção $nome, Iremos mandar um email para ($email) validando
-            seu telefone ($telefone) e a sua data de aniversario ($data).</h1> "
+            $texto ="<h1>Muito obrigado pela atenção $nome, agora confirme suas informações!</h1>
+             <h3>Seu email: $email\n
+             Numero de telefone: ($telefone)\n
+             Sexo: $sexo\n
+             Data de nascimento: $data</h3>";
+
+             echo nl2br($texto);
             
 
             
