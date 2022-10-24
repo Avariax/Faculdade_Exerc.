@@ -33,14 +33,35 @@
             $telefone = $_GET["telefone"];
             $sexo = $_GET ["sexo"];
 
-            $texto ="<h1>Muito obrigado pela atenção $nome, agora confirme suas informações!</h1>
-             <h3>Seu email: $email\n
-             Numero de telefone: ($telefone)\n
-             Sexo: $sexo\n
-             Data de nascimento: $data</h3>";
 
-             echo nl2br($texto);
+            echo "<h1 style=text-align:center >Obrigado pela atenção <br>";
+    
+
+             function gravar($txt){
+                $arquivo = "meu_arquivo.txt";
+                
+                $fp = fopen($arquivo, "a+");
             
+                fwrite($fp, $txt);
+                
+                fclose($fp);
+            }
+            
+            gravar("$nome.$data.$email.$telefone.$sexo");
+
+            function ler(){
+                $arquivo = "meu_arquivo.txt";
+                
+                $fp = fopen($arquivo, "r");
+            
+                $conteudo = fread($fp, filesize($arquivo));
+                
+                fclose($fp);
+                
+                return $conteudo;
+            }
+            
+            echo ler();
 
             
     ?> 
